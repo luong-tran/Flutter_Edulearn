@@ -5,7 +5,7 @@ import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileRepository {
-  String endpoint = 'http://localhost:3000/logout';
+  String endpoint = 'https://edulearn-3owe.onrender.com/logout';
 
   Future<SignOutResponse> requestSignOut() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
