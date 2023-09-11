@@ -17,6 +17,19 @@ class ApplicationPage extends StatefulWidget {
 
 class _ApplicationPageState extends State<ApplicationPage> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    context.read<AppBloc>().add(const TriggerAppEvent(0));
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBloc, AppState>(builder: (context, state) {
       return Container(

@@ -10,11 +10,10 @@ class ProfileRepository {
   Future<SignOutResponse> requestSignOut() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    // final user = UserInfo.fromJson(jsonDecode(dataUser!));
-    Response response = await post(Uri.parse(endpoint), body: {"token": token});
+    Response response =
+        await post(Uri.parse(endpoint), headers: {'Cookie': "token=$token"});
     if (response.statusCode == 200) {
-      prefs.setString('dataUser', "");
-      prefs.setString('token', "");
+      await prefs.clear();
       return SignOutResponse.fromJson(jsonDecode(response.body));
     } else {
       throw Exception(response.reasonPhrase);
