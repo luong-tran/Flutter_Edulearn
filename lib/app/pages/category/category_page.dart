@@ -17,25 +17,25 @@ class CategoryPage extends StatefulWidget {
 }
 
 class _CategoryPageState extends State<CategoryPage> {
-  final List<String> segmentes = [
+  final List<String> _segmentes = [
     "Filter",
     'Roadmap',
     'Premium',
     'Popular',
     'Freemium'
   ];
-  String setSelected = "";
+  String _setSelected = "";
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    setSelected = segmentes[0];
+    _setSelected = _segmentes[0];
   }
 
-  void _setSeleted(String? value) {
+  void _handleSetSeleted(String? value) {
     setState(() {
-      setSelected = value!;
+      _setSelected = value!;
     });
   }
 
@@ -45,7 +45,7 @@ class _CategoryPageState extends State<CategoryPage> {
   }
 
   Widget _setViewCategory() {
-    return setSelected == "Filter"
+    return _setSelected == "Filter"
         ? _changeCategoryState(CategoryState.defaultState)
         : _changeCategoryState(CategoryState.changeState);
   }
@@ -67,11 +67,11 @@ class _CategoryPageState extends State<CategoryPage> {
         );
       case CategoryState.changeState:
         return buildGridSubCategory(
-            setSelected == "Roadmap" ? "Roadmap" : setSelected,
-            setSelected == "Roadmap"
+            _setSelected == "Roadmap" ? "Roadmap" : _setSelected,
+            _setSelected == "Roadmap"
                 ? SubTypeCategory.classCategory
                 : SubTypeCategory.subClassCategory,
-            setSelected == "Roadmap" ? catClass : catSubClass);
+            _setSelected == "Roadmap" ? catClass : catSubClass);
     }
   }
 
@@ -85,7 +85,7 @@ class _CategoryPageState extends State<CategoryPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const HeaderBackApp(),
-              buildSegmentedPicker(_setSeleted, setSelected, segmentes),
+              buildSegmentedPicker(_handleSetSeleted, _setSelected, _segmentes),
               _setViewCategory(),
               const SizedBox(
                 height: 30,
