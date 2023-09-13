@@ -12,7 +12,8 @@
 ## Introduction
 This is a final project when I learned about Flutter. I used to every that I learned to build this application.
 
-An [api](#https://github.com/Ulotrichouss/Edulearn) about Edulearn application using Node js, Express js, and Mongoose.
+An [api](https://github.com/Ulotrichouss/Edulearn) about Edulearn application using Node js, Express js, and Mongoose.
+
 
 ## Install
 
