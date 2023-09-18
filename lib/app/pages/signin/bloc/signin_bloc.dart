@@ -41,7 +41,7 @@ class SignInBloc extends Bloc<SignInEvents, SignInStates> {
       await prefs.setString('dataUser', json.encode(response.data));
       await prefs.setString('token', response.token ?? "");
       Navigator.of(event.context)
-          .pushNamedAndRemoveUntil("/application", (route) => true);
+          .pushNamedAndRemoveUntil("/application", (route) => false);
     } catch (e) {
       emit(SignInErrorState(e.toString()));
     }
