@@ -2,6 +2,7 @@ import 'package:edu_learn_app/app/pages/payment/bloc/payment_bloc.dart';
 import 'package:edu_learn_app/app/pages/payment/success/payment_success.dart';
 import 'package:edu_learn_app/app/pages/profile/bloc/profile_bloc.dart';
 import 'package:edu_learn_app/app/pages/profile/proflie_page.dart';
+import 'package:edu_learn_app/data/repositories/category_repository.dart';
 import 'package:edu_learn_app/data/repositories/profile_respository.dart';
 import 'package:edu_learn_app/data/repositories/sign_in_respository.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../app/pages/application/application.dart';
 import '../app/pages/application/bloc/app_blocs.dart';
 import '../app/pages/category/bloc/category_bloc.dart';
+import '../app/pages/category/bloc/category_event.dart';
 import '../app/pages/category/category_page.dart';
 import '../app/pages/detail/bloc/detail_bloc.dart';
 import '../app/pages/detail/detail_page.dart';
@@ -52,7 +54,9 @@ class AppPages {
       PageEntity(
         route: AppRoutes.CATEGORY,
         page: const CategoryPage(),
-        bloc: BlocProvider(create: (_) => CategoryBloc()),
+        bloc: BlocProvider(
+            create: (_) =>
+                CategoryBloc(CategoryRepository())..add(LoadCategoryEvent())),
       ),
       PageEntity(
         route: AppRoutes.DETAIL,

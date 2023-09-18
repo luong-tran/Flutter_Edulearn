@@ -89,7 +89,7 @@ class _ReusableTextFieldState extends State<ReusableTextField> {
           ),
           Flexible(
             child: TextField(
-              textInputAction: TextInputAction.continueAction,
+              // textInputAction: TextInputAction.continueAction,
               onChanged: (value) {
                 widget.onChanged(value);
                 _handleFocusChange();
