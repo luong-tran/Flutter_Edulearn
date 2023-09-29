@@ -97,45 +97,45 @@ class _SignUpPageState extends State<SignUpPage> with WidgetsBindingObserver {
                         height: 40,
                       ),
                       SignUpReusableTextField(
-                          hintText: "Full Name",
+                          hintText: 'Full Name',
                           iconName: Icons.person_outline_rounded,
                           textType: SignUpType.otherField,
                           valid: false,
-                          buttonName: "fullName",
+                          buttonName: 'fullName',
                           onChanged: (value) {}),
                       const SizedBox(height: 20),
                       SignUpReusableTextField(
-                          hintText: "Education",
+                          hintText: 'Education',
                           iconName: Icons.school_outlined,
                           textType: SignUpType.dropField,
                           valid: false,
-                          buttonName: "education",
+                          buttonName: 'education',
                           onChanged: (value) {}),
                       const SizedBox(height: 20),
                       SignUpReusableTextField(
-                          hintText: "Gender",
+                          hintText: 'Gender',
                           iconName: Icons.transgender_outlined,
                           textType: SignUpType.dropField,
                           valid: false,
-                          buttonName: "gender",
+                          buttonName: 'gender',
                           onChanged: (value) {}),
                       const SizedBox(height: 20),
                       SignUpReusableTextField(
-                          hintText: "Email",
+                          hintText: 'Email',
                           iconName: Icons.email_outlined,
                           textType: SignUpType.signInField,
                           valid: _isEmailValid,
-                          buttonName: "email",
+                          buttonName: 'email',
                           onChanged: (value) {
                             context.read<SignUpBloc>().add(EmailEvent(value));
                           }),
                       const SizedBox(height: 20),
                       SignUpReusableTextField(
-                          hintText: "Phone Number",
+                          hintText: 'Phone Number',
                           iconName: Icons.local_phone_outlined,
                           textType: SignUpType.otherField,
                           valid: _isPhoneNumberValid,
-                          buttonName: "phoneNumber",
+                          buttonName: 'phoneNumber',
                           onChanged: (value) {
                             context
                                 .read<SignUpBloc>()
@@ -143,18 +143,18 @@ class _SignUpPageState extends State<SignUpPage> with WidgetsBindingObserver {
                           }),
                       const SizedBox(height: 20),
                       SignUpReusableTextField(
-                          hintText: "Password",
+                          hintText: 'Password',
                           iconName: Icons.lock_outlined,
                           textType: SignUpType.signInField,
                           valid: _isPasswordValid,
-                          buttonName: "password",
+                          buttonName: 'password',
                           onChanged: (value) {
                             context
                                 .read<SignUpBloc>()
                                 .add(PasswordEvent(value));
                           }),
                       const SizedBox(height: 30),
-                      buildSignUpButton("Create Account", () {}, true)
+                      buildSignUpButton('Create Account', () {}, true)
                     ],
                   ))),
             ),

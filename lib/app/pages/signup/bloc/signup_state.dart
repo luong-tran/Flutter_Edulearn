@@ -3,7 +3,7 @@ class SignUpStates {
   final String password;
   final String phone;
 
-  SignUpStates({this.email = "", this.password = "", this.phone = ""});
+  SignUpStates({this.email = '', this.password = '', this.phone = ''});
 
   SignUpStates copyWith({String? email, String? password, String? phone}) {
     return SignUpStates(

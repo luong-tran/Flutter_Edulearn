@@ -1,8 +1,8 @@
-import 'package:edu_learn_app/untils/texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../untils/colors.dart';
+import '../../../../untils/texts.dart';
 
 Widget pageOnboarding(
     int index,
@@ -12,7 +12,7 @@ Widget pageOnboarding(
     String subtitle,
     String imagePath,
     PageController pageController) {
-  double width = MediaQuery.of(context).size.height;
+  var width = MediaQuery.of(context).size.height;
   return Container(
     padding: EdgeInsets.only(left: 30.w, right: 30.w),
     child: Column(
@@ -25,7 +25,7 @@ Widget pageOnboarding(
             fit: BoxFit.cover,
           ),
         ),
-        Container(
+        SizedBox(
           height: 230.h,
           child: Column(
             children: [
@@ -52,19 +52,21 @@ Widget pageOnboarding(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              buttonName != "Get Started"
-                  ? Flexible(
-                      child: _buttonOnboard("Skip", () {
-                      pageController.animateToPage(2,
-                          duration: const Duration(milliseconds: 1000),
-                          curve: Curves.decelerate);
-                    }, pageController))
-                  : Container(),
-              buttonName != "Get Started"
-                  ? const SizedBox(
-                      width: 16,
-                    )
-                  : Container(),
+              if (buttonName != 'Get Started')
+                Flexible(
+                    child: _buttonOnboard('Skip', () {
+                  pageController.animateToPage(2,
+                      duration: const Duration(milliseconds: 1000),
+                      curve: Curves.decelerate);
+                }, pageController))
+              else
+                Container(),
+              if (buttonName != 'Get Started')
+                const SizedBox(
+                  width: 16,
+                )
+              else
+                Container(),
               Flexible(
                   child: _buttonOnboard(buttonName, () {
                 if (index < 3) {
@@ -73,7 +75,7 @@ Widget pageOnboarding(
                       curve: Curves.decelerate);
                 } else {
                   Navigator.of(context)
-                      .pushNamedAndRemoveUntil("/sign_in", (route) => false);
+                      .pushNamedAndRemoveUntil('/sign_in', (route) => false);
                 }
               }, pageController)),
             ],
@@ -91,11 +93,11 @@ Widget _buttonOnboard(
     child: Container(
       height: 55,
       decoration: BoxDecoration(
-          color: buttonName == "Next" || buttonName == "Get Started"
+          color: buttonName == 'Next' || buttonName == 'Get Started'
               ? AppColors.primaryColor
               : AppColors.backgroundColor,
           borderRadius: BorderRadius.all(Radius.circular(15.w)),
-          boxShadow: buttonName == "Next" || buttonName == "Get Started"
+          boxShadow: buttonName == 'Next' || buttonName == 'Get Started'
               ? [
                   BoxShadow(
                       color: AppColors.primaryColor.withOpacity(0.4),
@@ -104,28 +106,30 @@ Widget _buttonOnboard(
                       offset: const Offset(0, 15))
                 ]
               : null),
-      child: buttonName == "Next"
+      child: buttonName == 'Next'
           ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(buttonName,
-                    style: buttonName == "Next" || buttonName == "Get Started"
+                    style: buttonName == 'Next' || buttonName == 'Get Started'
                         ? AppTextStyles.buttonTextPrimary
                         : AppTextStyles.buttonTextSecondary),
-                buttonName != "Get Started"
-                    ? const SizedBox(
-                        width: 14,
-                      )
-                    : Container(),
-                buttonName != "Get Started"
-                    ? const Icon(Icons.east_rounded,
-                        color: AppColors.backgroundColor, size: 21)
-                    : Container()
+                if (buttonName != 'Get Started')
+                  const SizedBox(
+                    width: 14,
+                  )
+                else
+                  Container(),
+                if (buttonName != 'Get Started')
+                  const Icon(Icons.east_rounded,
+                      color: AppColors.backgroundColor, size: 21)
+                else
+                  Container()
               ],
             )
           : Center(
               child: Text(buttonName,
-                  style: buttonName == "Next" || buttonName == "Get Started"
+                  style: buttonName == 'Next' || buttonName == 'Get Started'
                       ? AppTextStyles.buttonTextPrimary
                       : AppTextStyles.buttonTextSecondary),
             ),

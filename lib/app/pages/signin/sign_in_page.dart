@@ -1,14 +1,14 @@
-import 'package:edu_learn_app/untils/colors.dart';
-import 'package:edu_learn_app/untils/strings.dart';
+import '../../../untils/colors.dart';
+import '../../../untils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'bloc/signin_bloc.dart';
-import 'bloc/signin_event.dart';
-import 'bloc/signin_state.dart';
-import 'widgets/reusable_textfiled.dart';
-import 'widgets/sign_in_widgets.dart';
+import 'presentation/bloc/signin_bloc.dart';
+import 'presentation/bloc/signin_event.dart';
+import 'presentation/bloc/signin_state.dart';
+import 'presentation/widgets/reusable_textfiled.dart';
+import 'presentation/widgets/sign_in_widgets.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -69,7 +69,7 @@ class _SignInPageState extends State<SignInPage> {
                   const SizedBox(height: 47),
                   //Form Sign In
                   ReusableTextField(
-                      hintText: "Email",
+                      hintText: 'Email',
                       iconName: Icons.email_outlined,
                       textType: SignInType.email,
                       valid: _isEmailValid,
@@ -80,7 +80,7 @@ class _SignInPageState extends State<SignInPage> {
                     height: 24,
                   ),
                   ReusableTextField(
-                      hintText: "Password",
+                      hintText: 'Password',
                       iconName: Icons.lock_outlined,
                       textType: SignInType.password,
                       valid: _isPasswordValid,
@@ -94,17 +94,18 @@ class _SignInPageState extends State<SignInPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  (state is SignInLoadingState)
-                      ? const CircularProgressIndicator()
-                      : Container(),
+                  if (state is SignInLoadingState)
+                    const CircularProgressIndicator()
+                  else
+                    Container(),
                   const SizedBox(
                     height: 20,
                   ),
-                  buildLoginAndThirtParty(ButtonSignInType.signIn, "Log in",
-                      (() {
+                  buildLoginAndThirtParty(ButtonSignInType.signIn, 'Log in',
+                      () {
                     context.read<SignInBloc>().add(SignInSubmitEvent(
                         state.email, state.password, context));
-                  }), _isLoginButtonEnabled),
+                  }, _isLoginButtonEnabled),
                   const SizedBox(
                     height: 40,
                   ),
@@ -113,16 +114,16 @@ class _SignInPageState extends State<SignInPage> {
                     height: 24,
                   ),
                   buildLoginAndThirtParty(
-                      ButtonSignInType.thirdParty, "Facebook", (() {
-                    print("AAAA");
-                  }), true),
+                      ButtonSignInType.thirdParty, 'Facebook', () {
+                    print('AAAA');
+                  }, true),
                   const SizedBox(
                     height: 24,
                   ),
-                  buildLoginAndThirtParty(ButtonSignInType.thirdParty, "Google",
-                      (() {
-                    print("AAAA");
-                  }), true),
+                  buildLoginAndThirtParty(ButtonSignInType.thirdParty, 'Google',
+                      () {
+                    print('AAAA');
+                  }, true),
                 ],
               ))),
         ),

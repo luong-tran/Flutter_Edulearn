@@ -1,4 +1,4 @@
-import 'package:edu_learn_app/untils/texts.dart';
+import '../../../../untils/texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -43,22 +43,22 @@ class _ReusableTextFieldState extends State<SignUpReusableTextField> {
     _focusNode = FocusNode();
     _focusNode.addListener(_handleFocusChange);
 
-    _items = widget.hintText == "Gender"
-        ? ["Male", "Female", "Other"]
-        : ["University", "School", "Other"];
+    _items = widget.hintText == 'Gender'
+        ? ['Male', 'Female', 'Other']
+        : ['University', 'School', 'Other'];
   }
 
   void _handleFocusChange() {
     switch (widget.textType) {
       case SignUpType.signInField:
         setState(() {
-          _showError = !widget.valid && (widget.buttonName == "password") ||
-              !widget.valid && (widget.buttonName == "email");
+          _showError = !widget.valid && (widget.buttonName == 'password') ||
+              !widget.valid && (widget.buttonName == 'email');
         });
         break;
       case SignUpType.otherField:
         setState(() {
-          _showError = !widget.valid && (widget.buttonName == "phoneNumber");
+          _showError = !widget.valid && (widget.buttonName == 'phoneNumber');
         });
         break;
       case SignUpType.dropField:
@@ -82,7 +82,7 @@ class _ReusableTextFieldState extends State<SignUpReusableTextField> {
 
   @override
   Widget build(BuildContext context) {
-    Color borderColor = _showError ? Colors.red : AppColors.secondaryColor;
+    final borderColor = _showError ? Colors.red : AppColors.secondaryColor;
     switch (widget.textType) {
       case SignUpType.otherField:
         return Container(
@@ -109,7 +109,7 @@ class _ReusableTextFieldState extends State<SignUpReusableTextField> {
                     _handleFocusChange(); // Handle error display while typing
                   },
                   focusNode: _focusNode,
-                  keyboardType: widget.buttonName == "phoneNumber"
+                  keyboardType: widget.buttonName == 'phoneNumber'
                       ? TextInputType.number
                       : TextInputType.multiline,
                   decoration: InputDecoration(
@@ -126,7 +126,7 @@ class _ReusableTextFieldState extends State<SignUpReusableTextField> {
                         borderSide: BorderSide(color: Colors.transparent)),
                     hintStyle: AppTextStyles.hintTextPrimary,
                     errorText:
-                        _showError ? "${widget.hintText} is invalid" : null,
+                        _showError ? '${widget.hintText} is invalid' : null,
                   ),
                   style: AppTextStyles.bodyTextField,
                 ),
@@ -174,33 +174,34 @@ class _ReusableTextFieldState extends State<SignUpReusableTextField> {
                         borderSide: BorderSide(color: Colors.transparent)),
                     hintStyle: AppTextStyles.hintTextPrimary,
                     errorText:
-                        _showError ? "${widget.hintText} is invalid" : null,
+                        _showError ? '${widget.hintText} is invalid' : null,
                   ),
                   style: AppTextStyles.bodyTextField,
                   autocorrect: false,
                   obscureText:
-                      !_showPassword ? widget.buttonName == "password" : false,
+                      !_showPassword ? widget.buttonName == 'password' : false,
                 ),
               ),
-              widget.buttonName == "password"
-                  ? SizedBox(
-                      width: 24.w,
-                      child: IconButton(
-                        splashColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        icon: !_showPassword
-                            ? const Icon(
-                                Icons.visibility_off_outlined,
-                                color: AppColors.iconColorPrimary,
-                              )
-                            : const Icon(
-                                Icons.visibility_outlined,
-                                color: AppColors.iconColorPrimary,
-                              ),
-                        onPressed: _handleShowAndHidePassword,
-                      ),
-                    )
-                  : Container()
+              if (widget.buttonName == 'password')
+                SizedBox(
+                  width: 24.w,
+                  child: IconButton(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    icon: !_showPassword
+                        ? const Icon(
+                            Icons.visibility_off_outlined,
+                            color: AppColors.iconColorPrimary,
+                          )
+                        : const Icon(
+                            Icons.visibility_outlined,
+                            color: AppColors.iconColorPrimary,
+                          ),
+                    onPressed: _handleShowAndHidePassword,
+                  ),
+                )
+              else
+                Container()
             ],
           ),
         );
@@ -231,8 +232,7 @@ class _ReusableTextFieldState extends State<SignUpReusableTextField> {
                           _selectedValue = newValue;
                         });
                       },
-                      items:
-                          _items?.map<DropdownMenuItem<String>>((String value) {
+                      items: _items?.map<DropdownMenuItem<String>>((value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Text(value),

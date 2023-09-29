@@ -14,7 +14,7 @@ Widget buildHeaderParagraph() {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: const [
         Text(
-          "Mastering UI/UX Design",
+          'Mastering UI/UX Design',
           style: TextStyle(
             fontSize: 23,
             fontFamily: 'PlusJakartaSans-Bold',
@@ -27,7 +27,7 @@ Widget buildHeaderParagraph() {
           height: 32,
         ),
         Text(
-          "Application History in the World",
+          'Application History in the World',
           style: TextStyle(
             fontSize: 18,
             fontFamily: 'PlusJakartaSans-Bold',
@@ -49,7 +49,7 @@ Widget buildRatingAndSub() {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          "Free",
+          'Free',
           style: TextStyle(
             fontSize: 18,
             fontFamily: 'PlusJakartaSans-Medium',
@@ -71,13 +71,13 @@ Widget buildRatingAndSub() {
                 color: Colors.amber,
               ),
               itemCount: 5,
-              itemSize: 15.0,
+              itemSize: 15,
             ),
             const SizedBox(
               width: 5,
             ),
             const Text(
-              "(3,647)",
+              '(3,647)',
               style: TextStyle(
                 fontSize: 10,
                 fontFamily: 'PlusJakartaSans-Medium',
@@ -101,7 +101,7 @@ Widget buildVideoLesson() {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: const [
         Text(
-          "Preview class",
+          'Preview class',
           style: TextStyle(
             fontSize: 13,
             fontFamily: 'PlusJakartaSans-Medium',
@@ -128,7 +128,7 @@ Widget buildListLesson(BuildContext context) {
         Row(
           children: const [
             Text(
-              "10 lessons",
+              '10 lessons',
               style: TextStyle(
                 fontSize: 13,
                 fontFamily: 'PlusJakartaSans-Medium',
@@ -141,7 +141,7 @@ Widget buildListLesson(BuildContext context) {
               width: 7,
             ),
             Text(
-              "(1 hour 25 min)",
+              '(1 hour 25 min)',
               style: TextStyle(
                 fontSize: 13,
                 fontFamily: 'PlusJakartaSans-Medium',
@@ -162,8 +162,8 @@ Widget buildListLesson(BuildContext context) {
             },
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 1,
-              childAspectRatio: 1.0,
-              mainAxisSpacing: 16.0,
+              childAspectRatio: 1,
+              mainAxisSpacing: 16,
               mainAxisExtent: 68,
             )),
         const SizedBox(
@@ -171,7 +171,7 @@ Widget buildListLesson(BuildContext context) {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.of(context).pushNamed("/payment_detail");
+            Navigator.of(context).pushNamed('/payment_detail');
           },
           child: Container(
             height: 55,
@@ -186,7 +186,7 @@ Widget buildListLesson(BuildContext context) {
                       offset: const Offset(0, 15))
                 ]),
             child: const Center(
-              child: Text("Buy class - Rp0",
+              child: Text('Buy class - Rp0',
                   style: AppTextStyles.buttonTextPrimary),
             ),
           ),
@@ -222,7 +222,7 @@ Widget _btnLecture(int index) {
           ),
           Expanded(
             child: Text(
-              "Lecture ${index + 1}",
+              'Lecture ${index + 1}',
               style: const TextStyle(
                 fontSize: 13,
                 fontFamily: 'PlusJakartaSans-Medium',
@@ -242,7 +242,7 @@ Widget buildToolsInformation() {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      _textParagraph("Tools required"),
+      _textParagraph('Tools required'),
       const SizedBox(
         height: 8,
       ),
@@ -255,7 +255,7 @@ Widget buildToolsInformation() {
           itemBuilder: (context, index) {
             return _cardToolInfor(index);
           },
-          separatorBuilder: (BuildContext context, int index) {
+          separatorBuilder: (context, index) {
             return const SizedBox(width: 16);
           },
         ),
@@ -270,12 +270,12 @@ Widget _cardToolInfor(int index) {
     children: [
       Container(
           padding: const EdgeInsets.symmetric(horizontal: 21, vertical: 12),
-          child: SvgPicture.asset("assets/icons/uiux.svg")),
+          child: SvgPicture.asset('assets/icons/uiux.svg')),
       const SizedBox(
         height: 8,
       ),
       const Text(
-        "Figma",
+        'Figma',
         style: TextStyle(
           fontSize: 13,
           fontFamily: 'PlusJakartaSans-Medium',
@@ -295,14 +295,14 @@ Widget buildAboutClass() {
       const SizedBox(
         height: 31,
       ),
-      _textParagraph("About class"),
+      _textParagraph('About class'),
       const SizedBox(
         height: 16,
       ),
       Container(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: const Text(
-            "This class is an early stage to learn more about Application History, when the application was first created, by who the creator was, and why the application was created to the development of the application today.",
+            'This class is an early stage to learn more about Application History, when the application was first created, by who the creator was, and why the application was created to the development of the application today.',
             style: TextStyle(
               fontSize: 16,
               fontFamily: 'PlusJakartaSans-Medium',
@@ -323,19 +323,19 @@ Widget buildTableKeypoint() {
       const SizedBox(
         height: 48,
       ),
-      _textParagraph("Key point"),
+      _textParagraph('Key point'),
       ListView(
         shrinkWrap: true,
         padding: const EdgeInsets.only(top: 24, left: 30, right: 30),
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          _listTilesCustom("Understand why the App."),
-          _listTilesCustom("The essence of App creation."),
-          _listTilesCustom("Application use for human life."),
+          _listTilesCustom('Understand why the App.'),
+          _listTilesCustom('The essence of App creation.'),
+          _listTilesCustom('Application use for human life.'),
           _listTilesCustom(
               "The impact of the application on the civilizations of the world's cultures."),
           _listTilesCustom(
-              "Understand the development of applications from time to time.")
+              'Understand the development of applications from time to time.')
         ],
       )
     ],
@@ -349,13 +349,13 @@ Widget buildTableBenefit() {
       const SizedBox(
         height: 48,
       ),
-      _textParagraph("Key point"),
+      _textParagraph('Key point'),
       ListView(
         shrinkWrap: true,
         padding: const EdgeInsets.only(top: 24, left: 30, right: 30),
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          _listTilesCustom("Lifelong class material."),
+          _listTilesCustom('Lifelong class material.'),
         ],
       )
     ],
@@ -380,7 +380,7 @@ Widget buildAuthorInfo() {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      _textParagraph("Mentor class"),
+      _textParagraph('Mentor class'),
       Container(
         padding: const EdgeInsets.only(top: 24, left: 30, right: 30),
         child: const CircleAvatar(
@@ -395,7 +395,7 @@ Widget buildAuthorInfo() {
       const Padding(
         padding: EdgeInsets.symmetric(horizontal: 30),
         child: Text(
-          "Jacob Jones",
+          'Jacob Jones',
           style: TextStyle(
             fontSize: 13,
             fontFamily: 'PlusJakartaSans-Bold',
@@ -411,7 +411,7 @@ Widget buildAuthorInfo() {
       const Padding(
         padding: EdgeInsets.symmetric(horizontal: 30),
         child: Text(
-          "Sr. UI/UX Designer at Malaka Company, SGP.",
+          'Sr. UI/UX Designer at Malaka Company, SGP.',
           style: TextStyle(
             fontSize: 13,
             fontFamily: 'PlusJakartaSans-Regular',
@@ -447,7 +447,7 @@ Widget buildSocialMedia() {
       Container(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: const Text(
-            "Get in touch!",
+            'Get in touch!',
             style: TextStyle(
               fontSize: 10,
               fontFamily: 'PlusJakartaSans-Medium',
@@ -461,15 +461,15 @@ Widget buildSocialMedia() {
         margin: const EdgeInsets.only(top: 16, bottom: 50),
         child: Row(
           children: [
-            SvgPicture.asset("assets/icons/instagram.svg"),
+            SvgPicture.asset('assets/icons/instagram.svg'),
             const SizedBox(
               width: 8,
             ),
-            SvgPicture.asset("assets/icons/tiktok.svg"),
+            SvgPicture.asset('assets/icons/tiktok.svg'),
             const SizedBox(
               width: 8,
             ),
-            SvgPicture.asset("assets/icons/youtube.svg")
+            SvgPicture.asset('assets/icons/youtube.svg')
           ],
         ),
       )

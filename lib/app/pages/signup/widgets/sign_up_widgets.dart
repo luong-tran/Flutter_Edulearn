@@ -19,7 +19,7 @@ Widget buildHeaderSignUp(BuildContext context) {
         GestureDetector(
           onTap: _onTap,
           child: const Text(
-            "Sign in",
+            'Sign in',
             style: TextStyle(
               fontSize: 18,
               fontFamily: 'PlusJakartaSans-Bold',
@@ -38,7 +38,7 @@ Widget buildParagraphHeader() {
   return Column(
     children: const [
       Text(
-        "Sign up",
+        'Sign up',
         style: TextStyle(
             fontSize: 23,
             fontFamily: 'PlusJakartaSans-Bold',
@@ -50,7 +50,7 @@ Widget buildParagraphHeader() {
         height: 16,
       ),
       Text(
-        "The point of your journey together is here, start registering now",
+        'The point of your journey together is here, start registering now',
         textAlign: TextAlign.center,
         style: AppTextStyles.bodyTextRegular,
       )
@@ -64,13 +64,13 @@ Widget _logoEduLearn() {
       SizedBox(
         width: 36,
         height: 36,
-        child: SvgPicture.asset("assets/images/logo.svg"),
+        child: SvgPicture.asset('assets/images/logo.svg'),
       ),
       const SizedBox(
         width: 8,
       ),
       Text(
-        "EduLearn",
+        'EduLearn',
         style: TextStyle(
             fontSize: 23,
             fontFamily: 'PlusJakartaSans-Bold',
