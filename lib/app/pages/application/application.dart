@@ -6,7 +6,7 @@ import '../../../untils/colors.dart';
 import 'bloc/app_blocs.dart';
 import 'bloc/app_events.dart';
 import 'bloc/app_states.dart';
-import 'bloc/widgets/application_widgets.dart';
+import 'widgets/application_widgets.dart';
 
 class ApplicationPage extends StatefulWidget {
   const ApplicationPage({Key? key}) : super(key: key);
@@ -70,7 +70,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                   unselectedItemColor: AppColors.iconColorPrimary,
                   items: [
                     BottomNavigationBarItem(
-                      label: "home",
+                      label: 'home',
                       icon: SizedBox(
                         width: 15.w,
                         height: 15.h,
@@ -78,7 +78,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                       ),
                     ),
                     BottomNavigationBarItem(
-                      label: "profile",
+                      label: 'profile',
                       icon: SizedBox(
                           width: 15.w,
                           height: 15.h,

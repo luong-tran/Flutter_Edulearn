@@ -22,7 +22,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
-      body: BlocBuilder<OnboardBloc, OnboardStates>(builder: ((context, state) {
+      body: BlocBuilder<OnboardBloc, OnboardStates>(builder: (context, state) {
         return Container(
           margin: EdgeInsets.only(top: 50.h),
           width: 375.w,
@@ -39,26 +39,26 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   pageOnboarding(
                       1,
                       context,
-                      "Next",
-                      "Find a field that you like",
-                      "There are many fields that you can find here, and you can learn all of them",
-                      "assets/images/onboarding_1.png",
+                      'Next',
+                      'Find a field that you like',
+                      'There are many fields that you can find here, and you can learn all of them',
+                      'assets/images/onboarding_1.png',
                       pageController),
                   pageOnboarding(
                       2,
                       context,
-                      "Next",
-                      "Start your journey",
-                      "You can start your journey in the field you love, no need to be afraid of getting lost, we will help you reach the finish line",
-                      "assets/images/onboarding_2.png",
+                      'Next',
+                      'Start your journey',
+                      'You can start your journey in the field you love, no need to be afraid of getting lost, we will help you reach the finish line',
+                      'assets/images/onboarding_2.png',
                       pageController),
                   pageOnboarding(
                       3,
                       context,
-                      "Get Started",
-                      "You can be anything, the world is in your hands",
-                      "By learning & increasing knowledge you will become a wise person and can change things around you and even the world",
-                      "assets/images/onboarding_3.png",
+                      'Get Started',
+                      'You can be anything, the world is in your hands',
+                      'By learning & increasing knowledge you will become a wise person and can change things around you and even the world',
+                      'assets/images/onboarding_3.png',
                       pageController),
                 ],
               ),
@@ -77,7 +77,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             ],
           ),
         );
-      })),
+      }),
     );
   }
 }

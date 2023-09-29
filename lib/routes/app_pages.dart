@@ -1,24 +1,24 @@
-import 'package:edu_learn_app/app/pages/payment/bloc/payment_bloc.dart';
-import 'package:edu_learn_app/app/pages/payment/success/payment_success.dart';
-import 'package:edu_learn_app/app/pages/profile/bloc/profile_bloc.dart';
-import 'package:edu_learn_app/app/pages/profile/proflie_page.dart';
-import 'package:edu_learn_app/data/repositories/category_repository.dart';
-import 'package:edu_learn_app/data/repositories/profile_respository.dart';
-import 'package:edu_learn_app/data/repositories/sign_in_respository.dart';
+import '../app/pages/payment/presentation/views/payment_success.dart';
+import '../app/pages/profile/presentation/views/proflie_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../app/pages/application/application.dart';
 import '../app/pages/application/bloc/app_blocs.dart';
-import '../app/pages/category/bloc/category_bloc.dart';
-import '../app/pages/category/bloc/category_event.dart';
-import '../app/pages/category/category_page.dart';
+import '../app/pages/category/domain/repos/category_repository.dart';
+import '../app/pages/category/presentation/bloc/category_bloc.dart';
+import '../app/pages/category/presentation/bloc/category_event.dart';
+import '../app/pages/category/presentation/views/category_page.dart';
 import '../app/pages/detail/bloc/detail_bloc.dart';
 import '../app/pages/detail/detail_page.dart';
 import '../app/pages/onboarding/bloc/onboarding_bloc.dart';
 import '../app/pages/onboarding/onboarding_page.dart';
-import '../app/pages/payment/detail/payment_detail.dart';
-import '../app/pages/signin/bloc/signin_bloc.dart';
+import '../app/pages/payment/presentation/bloc/payment_bloc.dart';
+import '../app/pages/payment/presentation/views/payment_detail.dart';
+import '../app/pages/profile/domain/repos/profile_respository.dart';
+import '../app/pages/profile/presentation/bloc/profile_bloc.dart';
+import '../app/pages/signin/domain/repos/sign_in_respository.dart';
+import '../app/pages/signin/presentation/bloc/signin_bloc.dart';
 import '../app/pages/signin/sign_in_page.dart';
 import '../app/pages/signup/bloc/signup_bloc.dart';
 import '../app/pages/signup/sign_up_page.dart';
@@ -77,8 +77,8 @@ class AppPages {
   }
 
   static List<dynamic> allBlocProviders(BuildContext context) {
-    List<dynamic> blocProviders = <dynamic>[];
-    for (var bloc in routes()) {
+    var blocProviders = <dynamic>[];
+    for (final bloc in routes()) {
       blocProviders.add(bloc.bloc);
     }
 
@@ -87,15 +87,16 @@ class AppPages {
 
   static MaterialPageRoute GenerateRouteSettings(RouteSettings settings) {
     if (settings.name != null) {
-      var result = routes().where((element) => element.route == settings.name);
+      final result =
+          routes().where((element) => element.route == settings.name);
 
       if (result.isNotEmpty) {
-        print("valid route name ${settings.name}");
+        print('valid route name ${settings.name}');
         return MaterialPageRoute(
             builder: (_) => result.first.page, settings: settings);
       }
     }
-    print("invalid route name ${settings.name}");
+    print('invalid route name ${settings.name}');
     return MaterialPageRoute(
         builder: (_) => const OnboardingPage(), settings: settings);
   }

@@ -46,13 +46,13 @@ Widget _logoEduLearn() {
       SizedBox(
         width: 36,
         height: 36,
-        child: SvgPicture.asset("assets/images/logo.svg"),
+        child: SvgPicture.asset('assets/images/logo.svg'),
       ),
       const SizedBox(
         width: 8,
       ),
       Text(
-        "EduLearn",
+        'EduLearn',
         style: TextStyle(
             fontSize: 23,
             fontFamily: 'PlusJakartaSans-Bold',
