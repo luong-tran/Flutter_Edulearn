@@ -5,14 +5,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../domain/repos/sign_in_respository.dart';
+import '../../../../../core/resources/data_state.dart';
+import '../../data/models/user_model.dart';
+import '../../domain/usecases/sign_in.dart';
 import 'signin_event.dart';
 import 'signin_state.dart';
 
 class SignInBloc extends Bloc<SignInEvents, SignInStates> {
-  final SignInRepository _signInRepository;
+  final SignInUseCase _signInUseCase;
 
-  SignInBloc(this._signInRepository) : super(SignInStates()) {
+  SignInBloc(this._signInUseCase) : super(SignInStates()) {
     on<EmailEvent>(_emailEvent);
 
     on<PasswordEvent>(_passwordEvent);
@@ -33,17 +35,23 @@ class SignInBloc extends Bloc<SignInEvents, SignInStates> {
   void _signInSubmitEvent(
       SignInSubmitEvent event, Emitter<SignInStates> emit) async {
     emit(SignInLoadingState());
-    try {
-      final response =
-          await _signInRepository.requestSignIn(event.email, event.password);
-      emit(SignInLoadedState(response));
-      var prefs = await SharedPreferences.getInstance();
-      await prefs.setString('dataUser', json.encode(response.data));
-      await prefs.setString('token', response.token ?? '');
+
+    final dataState = await _signInUseCase(
+        params: SignInRequire(event.email, event.password));
+
+    if (dataState is DataSuccess) {
+      print(dataState.data);
+      emit(SignInLoadedState(dataState.data));
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('dataUser', json.encode(dataState.data?.data));
+      await prefs.setString('token', dataState.data?.token ?? '');
       await Navigator.of(event.context)
           .pushNamedAndRemoveUntil('/application', (route) => false);
-    } catch (e) {
-      emit(SignInErrorState(e.toString()));
+    }
+
+    if (dataState is DataFailed) {
+      print(dataState.error!.message);
+      emit(SignInErrorState(dataState.error!));
     }
   }
 
