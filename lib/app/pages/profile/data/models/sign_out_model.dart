@@ -1,15 +1,22 @@
-class SignOutResponse {
+import '../../domain/entities/sign_out_entity.dart';
+
+class SignOutModel extends SignOutEntity {
+  @override
   String? msg;
 
-  SignOutResponse({this.msg});
+  SignOutModel({this.msg});
 
-  SignOutResponse.fromJson(Map<String, dynamic> json) {
+  SignOutModel.fromJson(Map<String, dynamic> json) {
     msg = json['msg'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+    final data = <String, dynamic>{};
     data['msg'] = msg;
     return data;
+  }
+
+  factory SignOutModel.fromEntity(SignOutEntity entity) {
+    return SignOutModel(msg: entity.msg);
   }
 }

@@ -1,23 +1,23 @@
-import 'dart:convert';
+import '../../../../../core/resources/data_state.dart';
+import '../entities/sign_out_entity.dart';
 
-import 'package:http/http.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// class ProfileRepository {
+//   String endpoint = 'https://edulearn-3owe.onrender.com/logout';
 
-import '../../data/models/sign_out_model.dart';
+//   Future<SignOutResponse> requestSignOut() async {
+//     var prefs = await SharedPreferences.getInstance();
+//     final token = prefs.getString('token');
+//     var response =
+//         await post(Uri.parse(endpoint), headers: {'Cookie': 'token=$token'});
+//     if (response.statusCode == 200) {
+//       await prefs.clear();
+//       return SignOutResponse.fromJson(jsonDecode(response.body));
+//     } else {
+//       throw Exception(response.reasonPhrase);
+//     }
+//   }
+// }
 
-class ProfileRepository {
-  String endpoint = 'https://edulearn-3owe.onrender.com/logout';
-
-  Future<SignOutResponse> requestSignOut() async {
-    var prefs = await SharedPreferences.getInstance();
-    final token = prefs.getString('token');
-    var response =
-        await post(Uri.parse(endpoint), headers: {'Cookie': 'token=$token'});
-    if (response.statusCode == 200) {
-      await prefs.clear();
-      return SignOutResponse.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception(response.reasonPhrase);
-    }
-  }
+abstract class ProfileRepository {
+  Future<DataState<SignOutEntity>> signOutResponse();
 }

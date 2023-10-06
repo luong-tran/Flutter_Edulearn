@@ -1,4 +1,6 @@
-import '../../data/models/sign_out_model.dart';
+import 'package:dio/dio.dart';
+
+import '../../domain/entities/sign_out_entity.dart';
 
 class ProfileState {
   const ProfileState();
@@ -11,7 +13,7 @@ class SignOutLoadingState extends ProfileState {
 
 class SignOutLoadedState extends ProfileState {
   SignOutLoadedState(this.response);
-  final SignOutResponse response;
+  final SignOutEntity response;
 
   @override
   Object? get props => {response};
@@ -19,7 +21,7 @@ class SignOutLoadedState extends ProfileState {
 
 class SignOutErrorState extends ProfileState {
   SignOutErrorState(this.error);
-  final String error;
+  final DioError? error;
 
   @override
   List<Object?> get props => [error];

@@ -14,7 +14,6 @@ import '../app/pages/onboarding/onboarding_page.dart';
 import '../app/pages/payment/presentation/bloc/payment_bloc.dart';
 import '../app/pages/payment/presentation/views/payment_detail.dart';
 import '../app/pages/payment/presentation/views/payment_success.dart';
-import '../app/pages/profile/domain/repos/profile_respository.dart';
 import '../app/pages/profile/presentation/bloc/profile_bloc.dart';
 import '../app/pages/profile/presentation/views/proflie_page.dart';
 // import '../app/pages/signin/domain/repos/sign_in_respository.dart';
@@ -50,7 +49,7 @@ class AppPages {
       PageEntity(
         route: AppRoutes.PROFILE,
         page: ProfilePage(),
-        bloc: BlocProvider(create: (_) => ProfileBloc(ProfileRepository())),
+        bloc: BlocProvider(create: (_) => sl<ProfileBloc>()),
       ),
       PageEntity(
         route: AppRoutes.CATEGORY,
