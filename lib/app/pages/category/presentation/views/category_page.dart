@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../common/wigets/common_widgets.dart';
 import '../../data/models/class_model.dart';
-import '../bloc/category_state.dart';
 import '../bloc/category_bloc.dart';
+import '../bloc/category_state.dart';
 import '../widgets/category_widgets.dart';
 
 enum GroupState {

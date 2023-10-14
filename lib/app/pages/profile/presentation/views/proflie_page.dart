@@ -1,8 +1,8 @@
-import '../../../../../untils/colors.dart';
-import '../../../../../untils/texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../untils/colors.dart';
+import '../../../../../untils/texts.dart';
 import '../bloc/profile_bloc.dart';
 import '../bloc/profile_event.dart';
 import '../bloc/profile_state.dart';
@@ -105,12 +105,10 @@ class _ProfilePageState extends State<ProfilePage> {
                       endIcon: false,
                       onPress: () {
                         context.read<ProfileBloc>().add(SignOutEvent(context));
-                        // context.read<SignInBloc>().add(SignInSubmitEvent(
-                        // state.email, state.password, context))
                       }),
                   const SizedBox(height: 10),
                   if (state is SignOutErrorState)
-                    Text(state.error)
+                    Text(state.error?.message ?? '')
                   else
                     Container(),
                   if (state is SignOutLoadingState)

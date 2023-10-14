@@ -1,4 +1,6 @@
-import '../../data/models/user_model.dart';
+import 'package:dio/dio.dart';
+
+import '../../domain/entities/sign_in_entity.dart';
 
 class SignInStates {
   final String email;
@@ -26,16 +28,16 @@ class SignInLoadingState extends SignInStates {
 }
 
 class SignInLoadedState extends SignInStates {
-  SignInLoadedState(this.response);
-  final SignInResponse response;
+  SignInLoadedState(this.entities);
+  final SignInEntity? entities;
 
   @override
-  Object? get props => {response};
+  List<Object?> get props => [entities];
 }
 
 class SignInErrorState extends SignInStates {
   SignInErrorState(this.error);
-  final String error;
+  final DioError? error;
 
   @override
   List<Object?> get props => [error];

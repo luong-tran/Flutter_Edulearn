@@ -5,9 +5,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app/pages/application/application.dart';
 import 'app/pages/onboarding/onboarding_page.dart';
+import 'injection_container.dart';
 import 'routes/app_routes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDependencies();
   runApp(const MyApp());
 }
 
@@ -43,8 +46,8 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future checkSignIn() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    var token = prefs.getString('token');
+    var prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token');
     print(token);
     setState(() {
       isVisible = token != null;

@@ -1,14 +1,14 @@
-import '../../../untils/colors.dart';
-import '../../../untils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'presentation/bloc/signin_bloc.dart';
-import 'presentation/bloc/signin_event.dart';
-import 'presentation/bloc/signin_state.dart';
-import 'presentation/widgets/reusable_textfiled.dart';
-import 'presentation/widgets/sign_in_widgets.dart';
+import '../../../../../untils/colors.dart';
+import '../../../../../untils/strings.dart';
+import '../bloc/signin_bloc.dart';
+import '../bloc/signin_event.dart';
+import '../bloc/signin_state.dart';
+import '../widgets/reusable_textfiled.dart';
+import '../widgets/sign_in_widgets.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -18,8 +18,8 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  bool _isEmailValid = false;
-  bool _isPasswordValid = false;
+  late bool _isEmailValid = false;
+  late bool _isPasswordValid = false;
   bool _isLoginButtonEnabled = false;
 
   void _emitterValid(SignInStates state) {
